@@ -12,22 +12,22 @@ ll p[51];
  ll solve(ll n, ll x){
    ll ans = 0;
    if(n == 0){
-     ans += 1;
+     ans = 1;
    }
    else if(x == 1){
-     ans += 0;
+     ans = 0;
    }
    else if(x <= 1 + a[n-1]){
-     ans += solve(n - 1, x - 1);
+     ans = solve(n - 1, x - 1);
    }
    else if(x == 2 + a[n-1]){
-     ans += p[n-1] + 1;
+     ans = p[n-1] + 1;
    }
    else if(x <= 2 + 2 * a[n-1]){
-     ans += p[n-1] + 1 + solve(n - 1, x - 2 - a[n-1]);
+     ans = p[n-1] + 1 + solve(n - 1, x - 2 - a[n-1]);
    }
    else{
-     ans += 2 * p[n-1] + 1;
+     ans = 2 * p[n-1] + 1;
    }
    return ans;
  }
